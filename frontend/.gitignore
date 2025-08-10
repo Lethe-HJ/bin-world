@@ -31,3 +31,7 @@ coverage
 
 test-results/
 playwright-report/
+
+# Resource files
+/resource/*
+!/resource/readme.md
