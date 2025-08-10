@@ -35,3 +35,4 @@ playwright-report/
 # Resource files
 /resource/*
 !/resource/readme.md
+/logs

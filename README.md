@@ -71,4 +71,49 @@ yarn tauri:build
 
 The Tauri application is configured to load the frontend from `http://localhost:5173` by default. You can modify this URL in `src-tauri/tauri.conf.json` if needed.
 
+## 子项目代码管理
 
+本项目使用 git subtree 管理子项目代码。Frontend 和 Backend 分别维护在独立的仓库中：
+
+- Frontend: `git@github.com:Lethe-HJ/bin-world-frontend.git`
+- Backend: `git@github.com:Lethe-HJ/bin-world-backend.git`
+
+### 提交子项目代码
+
+当你修改了子项目的代码后，需要使用以下命令提交到对应的仓库：
+
+```bash
+# 提交 Frontend 的修改
+git add frontend/
+git commit -m "your commit message"
+git subtree push --prefix frontend frontend master
+
+# 提交 Backend 的修改
+git add backend/
+git commit -m "your commit message"
+git subtree push --prefix backend backend main
+```
+
+### 拉取子项目更新
+
+如果需要从远程仓库拉取子项目的更新：
+
+```bash
+# 拉取 Frontend 的更新
+git subtree pull --prefix frontend frontend master --squash
+
+# 拉取 Backend 的更新
+git subtree pull --prefix backend backend main --squash
+```
+
+### 注意事项
+
+1. Frontend 的 `resource` 目录管理：
+   - 只有 `resource/readme.md` 会被 git 追踪
+   - 其他资源文件不会被提交到仓库
+   - 需要通过其他方式（如网盘）共享大文件资源
+
+2. 分支管理：
+   - Frontend 使用 `master` 分支
+   - Backend 使用 `main` 分支
+   - 主项目使用 `main` 分支

@@ -25,3 +25,4 @@ dist-ssr
 resource/*
 !resource/readme.md
 src-tauri/icons
+logs/
