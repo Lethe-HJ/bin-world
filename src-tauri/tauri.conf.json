@@ -4,7 +4,9 @@
   "version": "0.1.0",
   "identifier": "com.bin-world.app",
   "build": {
-    "devUrl": "http://localhost:5173"
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "yarn build",
+    "frontendDist": "../dist"
   },
   "app": {
     "windows": [
@@ -12,7 +14,7 @@
         "title": "Bin World",
         "width": 1200,
         "height": 800,
-        "url": "http://localhost:5173",
+        "url": "http://localhost:1420/src-tauri/webview/",
         "devtools": true
       }
     ],

@@ -44,6 +44,7 @@ start_desktop() {
     # 生成日志文件名
     LOG_FILE="logs/desktop_$(date +%Y%m%d_%H%M%S).log"
     echo -e "${GREEN}桌面应用日志输出到: ${LOG_FILE}${NC}"
+    npx vite 2>&1 | tee "${LOG_FILE}" | grep --line-buffered -i "error\|exception\|fail\|warn\|ERR_\|panic\|RUST_BACKTRACE\|thread.*panicked" &
     # 使用 tee 命令同时输出到文件和控制台，并在后台启动 tail 来监控错误
     yarn tauri dev 2>&1 | tee "${LOG_FILE}" | grep --line-buffered -i "error\|exception\|fail\|warn\|ERR_\|panic\|RUST_BACKTRACE\|thread.*panicked" &
     # 保存后台进程的 PID
