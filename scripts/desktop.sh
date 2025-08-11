@@ -4,7 +4,7 @@
 source "$(dirname "$0")/common.sh"
 
 # Tauri Node.js 版本
-TAURI_NODE_VERSION="20.10.0"
+TAURI_NODE_VERSION="22.14.0"
 
 start_desktop() {
     # 启用 Rust 编译缓存
